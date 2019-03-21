@@ -15,3 +15,12 @@ after_success:
   - docker build -t carlosdelros/multi-container-nginx ./nginx
   - docker build -t carlosdelros/multi-container-backend ./backend
   - docker build -t carlosdelros/multi-container-worker ./worker
+  
+  # Log in to the docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Take images and push to dockerhub
+  - docker push carlosdelros/multi-container-frontend
+  - docker push carlosdelros/multi-container-nginx
+  - docker push carlosdelros/multi-container-backend
+  - docker push carlosdelros/multi-container-worker
