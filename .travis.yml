@@ -1,0 +1,17 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t carlosdelros/frontend-test -f ./frontend/Dockerfile.dev ./frontend
+
+
+script:
+  - docker run carlosdelros/frontend-test npm test -- --coverage
+
+
+after_success:
+  - docker build -t carlosdelros/multi-container-frontend ./frontend
+  - docker build -t carlosdelros/multi-container-nginx ./nginx
+  - docker build -t carlosdelros/multi-container-backend ./backend
+  - docker build -t carlosdelros/multi-container-worker ./worker
