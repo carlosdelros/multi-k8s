@@ -24,3 +24,17 @@ after_success:
   - docker push carlosdelros/multi-container-nginx
   - docker push carlosdelros/multi-container-backend
   - docker push carlosdelros/multi-container-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: multi-container-kubernetes-tutorial
+  env: MultiContainerKubernetesTutorial-env
+  bucket_name: elasticbeanstalk-us-east-1-973824132018
+  bucket_path: multi-container-kub
+on:
+  branch: master
+access_key_id: $AWS_BEANSTALK_ACCESS_KEY
+secret_access_key:
+  secure: $AWS_BEANSTALK_SECRET_KEY
+ 
