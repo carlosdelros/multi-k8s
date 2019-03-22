@@ -24,6 +24,8 @@ after_success:
   - docker push carlosdelros/multi-container-nginx
   - docker push carlosdelros/multi-container-backend
   - docker push carlosdelros/multi-container-worker
+  - echo "hello"
+  - echo $AWS_BEANSTALK_ACCESS_KEY
 
 deploy:
   provider: elasticbeanstalk
