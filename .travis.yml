@@ -27,16 +27,16 @@ after_success:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id:
-    secure: $AWS_BEANSTALK_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_BEANSTALK_SECRET_KEY
   region: us-east-1
   app: multi-container-kubernetes-tutorial
   env: MultiContainerKubernetesTutorial-env
   bucket_name: elasticbeanstalk-us-east-1-973824132018
   bucket_path: multi-container-kub
-on:
-  branch: master
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_BEANSTALK_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_BEANSTALK_SECRET_KEY
 
  

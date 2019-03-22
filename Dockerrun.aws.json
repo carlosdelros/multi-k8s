@@ -5,19 +5,22 @@
             "name": "frontend",
             "image": "carlosdelros/multi-container-frontend",
             "hostname": "frontend",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "backend",
             "image": "carlosdelros/multi-container-backend",
             "hostname": "backend",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "worker",
             "image": "carlosdelros/multi-container-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "nginx",
@@ -30,7 +33,8 @@
                     "containerPort": 80
                 }
             ],
-            "links": ["frontend", "backend"]
+            "links": ["frontend", "backend"],
+            "memory": 128
         }
     ]
 }
