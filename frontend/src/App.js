@@ -13,6 +13,7 @@ class App extends Component {
             <Link to="/">Home</Link>
             <div></div>
             <Link to="/otherpage">Other Page</Link>
+            <h1>Fib Calculator!</h1>
           </header>
           <div>
             <Route exact path="/" component={Fib}/>
